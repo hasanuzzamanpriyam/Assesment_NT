@@ -1,7 +1,11 @@
-export default function ApplicationLogo({ className = 'h-9 w-auto', showText = true }) {
+export default function ApplicationLogo({
+    className = 'h-9 w-auto',
+    showText = true,
+    isDark = false,
+}) {
     return (
         <div className="flex items-center space-x-2.5">
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 shadow-md shadow-indigo-500/25">
+            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 shadow-md shadow-indigo-500/25">
                 <svg
                     className="h-5 w-5 text-white"
                     fill="none"
@@ -22,16 +26,24 @@ export default function ApplicationLogo({ className = 'h-9 w-auto', showText = t
             </div>
             {showText && (
                 <div className="flex flex-col">
-                    <div className="flex items-center space-x-1">
-                        <span className="font-extrabold tracking-tight text-gray-900 text-lg">
-                            Smart<span className="text-indigo-600">Desk</span>
+                    <div className="flex items-center space-x-1.5">
+                        <span className={`font-extrabold tracking-tight text-lg ${
+                            isDark ? 'text-white' : 'text-slate-900'
+                        }`}>
+                            Smart<span className={isDark ? 'text-indigo-400' : 'text-indigo-600'}>Desk</span>
                         </span>
-                        <span className="rounded-md bg-indigo-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-indigo-700 ring-1 ring-inset ring-indigo-700/10">
+                        <span className={`rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                            isDark
+                                ? 'bg-indigo-500/25 text-indigo-300 ring-1 ring-inset ring-indigo-400/40'
+                                : 'bg-indigo-50 text-indigo-700 ring-1 ring-inset ring-indigo-700/10'
+                        }`}>
                             AI
                         </span>
                     </div>
-                    <span className="text-[10px] font-medium text-gray-400 -mt-1 tracking-wide">
-                        Issue & Workflow System
+                    <span className={`text-[10px] font-medium -mt-1 tracking-wide ${
+                        isDark ? 'text-slate-300' : 'text-slate-500'
+                    }`}>
+                        Issue &amp; Workflow System
                     </span>
                 </div>
             )}

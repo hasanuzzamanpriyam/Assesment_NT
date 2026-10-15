@@ -24,7 +24,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             {/* Header Navigation */}
             <header className="relative z-20 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-                    <ApplicationLogo showText={true} />
+                    <ApplicationLogo showText={true} isDark={true} />
 
                     <div className="flex items-center space-x-3">
                         {auth.user ? (
